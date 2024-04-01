@@ -9,9 +9,16 @@ from models import storage
 @app_views.route('/status')
 def api_status():
     """
+    status route
+    :return: response with json
     """
     response = {'status': "OK"}
-    return jsonify(response)
+    
+    resp = jsonify(data)
+    resp.status_code = 200
+
+    return resp
+     
 
 @app_views.route('/stats',methods=['GET'], strict_slashes=False)
 def get_stats():
@@ -28,5 +35,7 @@ def get_stats():
         'users': storage.count('User'),
     }
 
-    return jsonify(data)
+    resp = jsonify(data)
+    resp.status_code = 200
 
+    return resp
