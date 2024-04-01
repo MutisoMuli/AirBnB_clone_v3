@@ -13,9 +13,11 @@ def api_status():
     response = {'status': "OK"}
     return jsonify(response)
 
-@app_views.route('/stats')
+@app_views.route('/stats',methods=['GET'], strict_slashes=False)
 def get_stats():
     """
+    stats of all objs route
+    :return: json of all objs
     """
     stats = {
         'amenities': storage.count('Amenity'),
@@ -26,4 +28,5 @@ def get_stats():
         'users': storage.count('User'),
     }
 
-    return jsonify(stats)
+    return jsonify(data)
+
