@@ -11,11 +11,13 @@ app = Flask(__name__)
 
 app.register_blueprint(app_views)
 
+
 @app.teardown_appcontext
 def teardown_engine(exception):
     """
     """
     storage.close()
+
 
 @app.errorhandler(404)
 def not_found(error):
@@ -23,6 +25,7 @@ def not_found(error):
     """
     response = {"error": "Not found"}
     return jsonify(response), 404
+
 
 if __name__ == '__main__':
     HOST = getenv('HBNB_API_HOST', '0.0.0.0')
