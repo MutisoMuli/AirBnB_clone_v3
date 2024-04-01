@@ -15,7 +15,7 @@ def api_status():
     """
     response = {'status': "OK"}
 
-    resp = jsonify(data)
+    resp = jsonify(response)
     resp.status_code = 200
 
     return resp
@@ -36,7 +36,7 @@ def get_stats():
         'users': storage.count('User'),
     }
 
-    resp = jsonify(data)
+    resp = jsonify(stats)
     resp.status_code = 200
 
     return resp
