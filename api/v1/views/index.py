@@ -6,6 +6,7 @@ from flask import jsonify
 from api.v1.views import app_views
 from models import storage
 
+
 @app_views.route('/status')
 def api_status():
     """
@@ -13,14 +14,14 @@ def api_status():
     :return: response with json
     """
     response = {'status': "OK"}
-    
+
     resp = jsonify(data)
     resp.status_code = 200
 
     return resp
-     
 
-@app_views.route('/stats',methods=['GET'], strict_slashes=False)
+
+@app_views.route('/stats', methods=['GET'], strict_slashes=False)
 def get_stats():
     """
     stats of all objs route
