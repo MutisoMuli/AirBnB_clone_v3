@@ -14,14 +14,10 @@ def api_status():
     :return: response with json
     """
     response = {'status': "OK"}
-
-    resp = jsonify(data)
-    resp.status_code = 200
-
-    return resp
+    return jsonify(response)
 
 
-@app_views.route('/stats', methods=['GET'], strict_slashes=False)
+@app_views.route('/stats')
 def get_stats():
     """
     stats of all objs route
@@ -36,7 +32,4 @@ def get_stats():
         'users': storage.count('User'),
     }
 
-    resp = jsonify(data)
-    resp.status_code = 200
-
-    return resp
+    return jsonify(stats)

@@ -70,7 +70,7 @@ class BaseModel:
             del new_dict["_sa_instance_state"]
         if not save_to_disk:
             if 'password' in new_dict:
-                del new_dict('password')
+                del new_dict['password']
         return new_dict
 
     def delete(self):
